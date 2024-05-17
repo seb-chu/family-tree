@@ -2,7 +2,7 @@
 
 ## Terminology
 
-- ![Family Relation Chart](https://7esl.com/wp-content/uploads/2018/01/Family-Members-2.jpg)
+- ![Family Relation Chart](family-relation-chart.jpg)
 
 ## Tutorials
 - https://youtu.be/z2re1MfWtz0?si=0dCFnjN3f7IbhWuX
