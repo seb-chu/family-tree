@@ -12,32 +12,19 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
 @RepositoryRestResource(collectionResourceRel = "people", path = "people")
 public interface PersonRepository extends Neo4jRepository<Person, Long> {
-    List<Person> findByLastNameStartsWithIgnoreCase(@Param("lastName") String lastName);
-
     List<Person> findByFirstNameStartsWithIgnoreCase(@Param("firstName") String firstName);
-
-    
     @Query(
-            // "MATCH (parent:Person {firstName: $parent})" + 
-            // "MATCH (child:Person {firstName: $child})" +  
-            // "CREATE p=(parent)-[:HAS_CHILD]->(child)" +
-            // "WITH parent" + 
-            // "MATCH (parent)-[r:HAS_CHILD*0..]->(child)" +
-                // "MATCH p=(parent:Person {firstName: $parent})-[:HAS_CHILD]->(:Person)" +
-                // "RETURN parent, collect(nodes(p)), collect(relationships(p))"
-            ///////////////////// THESE TWO LINES WORKS ////////////////////
-            "MATCH (parent:Person {firstName: $parent})-[r:HAS_CHILD]->(child:Person)" +
-            "RETURN parent, collect(r), collect(child)"
+        "MATCH (parentFirst:Person {firstName: $parentFirst})-[r:HAS_CHILD]->(child:Person)" +
+        "RETURN parentFirst, collect(r), collect(child)"
+        )
+
+    // This works inidividually, however combining it with the above method causes an error. TEST
+    List<Person> findByLastNameStartsWithIgnoreCase(@Param("lastName") String lastName); 
+    @Query(
+        "MATCH (parentLast:Person {lastName: $parentLast})-[r:HAS_CHILD]->(child:Person)" +
+        "RETURN parentLast, collect(r), collect(child)"
+        )
             
-            ///////////////////// DOES NOT WORK //////////////////////////////
-            // "MATCH (parent:Person {firstName: $parent})" +
-            // "MATCH (child:Person {firstName: $child})" + 
-            // "CREATE (parent)-[:HAS_CHILD]->(child)" +
-            // "WITH " + 
-            // "MATCH (parent)-[r]->(:Person)" +
-            // "RETURN parent, collect(r), collect(child)" 
-            
-            )
     //how collect() works, https://neo4j.com/docs/cypher-manual/current/subqueries/collect/
     Person saveChildRelationship(String parent, String child); //trying to do this. https://stackoverflow.com/questions/77466175/problem-when-fetching-the-main-node-and-its-children-spring-data-neo4j
 

@@ -4,6 +4,9 @@
 
 - ![Family Relation Chart](https://7esl.com/wp-content/uploads/2018/01/Family-Members-2.jpg)
 
+## Tutorials
+- https://youtu.be/z2re1MfWtz0?si=0dCFnjN3f7IbhWuX
+
 ## Queries
 
 ### User profile function notations
@@ -86,6 +89,8 @@ RETURN parent, collect(r), collect(child)
 - [ ] Include "inlaw" status on user profile or do something else?
 - [x] Why is the children property for findChildren empty?***, the saveChildRelationship should output the parent and its children when creating another new relation. https://stackoverflow.com/questions/77466175/problem-when-fetching-the-main-node-and-its-children-spring-data-neo4j
 - [ ] Use a controller bc it combines the create and find has_child function. https://www.baeldung.com/spring-controllers
+  - [ ] https://www.youtube.com/watch?v=D44si7o4ndg
+  - [ ] https://www.youtube.com/watch?v=RrE9qpCxdD4
 - [ ] look into path parameters and @POST https://docs.spring.io/spring-data/neo4j/docs/current-SNAPSHOT/reference/html/
 - [ ] use lombok for easier time making Person class https://projectlombok.org/features/Builder, https://projectlombok.org/features/Data
 - [ ] look into unit testing with JUnit https://www.vogella.com/tutorials/JUnit/article.html
