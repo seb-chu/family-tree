@@ -2,9 +2,14 @@
 
 ## Terminology
 
+### Family Relation Chart
 - ![Family Relation Chart](family-relation-chart.jpg)
 
+### Degrees of Relationship Diagram
+- ![Degrees of Relationship Diagram](degrees-of-relationship.png)
+
 ## Tutorials
+- **Full Stack Tutorial**. https://youtu.be/_IgbB24scLI?si=Wo0pYC7hWEJT-5-A
 - Spring Boot Basics. https://youtu.be/z2re1MfWtz0?si=0dCFnjN3f7IbhWuX
 - how collect() works. https://neo4j.com/docs/cypher-manual/current/subqueries/collect/
 - All forms of RequestMapping. https://www.baeldung.com/spring-requestmapping
@@ -13,6 +18,7 @@
 - Lombok Cyclic Dependency issue. https://community.neo4j.com/t/logical-cyclic-mapping-dependency/47348
 - Lombok Intro. https://www.baeldung.com/intro-to-project-lombok
 -  how collect() works, https://neo4j.com/docs/cypher-manual/current/subqueries/collect/
+-  MERGE and ID issue. https://stackoverflow.com/questions/27729489/neo4j-merge-statement-with-id
 
 
 
@@ -111,14 +117,19 @@ MERGE (parent)-[r:HAS_CHILD]->(child)
 - [ ] Determine generation on the fly (each time the page is loaded) or store in user node.
 - [ ] Include "inlaw" status on user profile or do something else?
 - [x] Why is the children property for findChildren empty?***, the saveChildRelationship should output the parent and its children when creating another new relation. https://stackoverflow.com/questions/77466175/problem-when-fetching-the-main-node-and-its-children-spring-data-neo4j
-- [ ] Use a controller bc it combines the create and find has_child function. https://www.baeldung.com/spring-controllers
+- [x] Use a controller bc it combines the create and find has_child function. https://www.baeldung.com/spring-controllers
   - [x] https://www.youtube.com/watch?v=D44si7o4ndg
   - [x] https://www.youtube.com/watch?v=RrE9qpCxdD4
-- [ ] If a parent with children marries, all children needs to be linked to new parent. (or do not do this bc step-parent...) 
 - [ ] look into path parameters and @POST https://docs.spring.io/spring-data/neo4j/docs/current-SNAPSHOT/reference/html/
-- [ ] use lombok for easier time making Person class https://projectlombok.org/features/Builder, https://projectlombok.org/features/Data
+- [x] use lombok for easier time making Person class https://projectlombok.org/features/Builder, https://projectlombok.org/features/Data
+- [ ] how to use docker with this project
 - [ ] look into unit testing with JUnit https://www.vogella.com/tutorials/JUnit/article.html
-
+- [ ] authentication in neo4j and springboot. https://youtu.be/_IgbB24scLI?si=dV461oQUJafffsZW&t=6996
+- [ ] how to update in better REST API convention in general. (ex. updating bio description in a better way)
+- [ ] If a parent with children marries someone else, all children needs to be linked to new parent. (or do not do this bc step-parent...) 
+- [ ] learn how to delete in REST API convention
+- [ ] figure out how to delete a relationship and what happens to the disconnected family branch? (once disconnected that branch NEEDS to be connected somehow)
+- [ ] do I need multiple nodes for each Person field? Or, would i need one node with sublabels?
 
 
 ## FIXES
